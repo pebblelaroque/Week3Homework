@@ -2,34 +2,34 @@
 
 public class PieceColor : MonoBehaviour
 {
+ 
     [SerializeField]
-    private Sprite blueColor;
+    public int colorInt = 0;
     [SerializeField]
-    private Sprite redColor;
-    [SerializeField]
-    private Sprite greenColor;
-    [SerializeField]
-    private Sprite purpleColor;
-    [SerializeField]
-    private Sprite goldColor;
-    [SerializeField]
-    private Sprite greyColor;
-    [SerializeField]
-    private Sprite brownColor;
+    public Sprite[] brickColor;
+    public SpriteRenderer spriteRenderer;
 
-    [SerializeField]
-    private SpriteRenderer spriteRenderer;
+    void Start()
+    {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    }
 
     private void Awake()
     {
+        
+        colorInt = UnityEngine.Random.Range(0, 6);
         ChooseColor();
     }
 
     private void ChooseColor()
     {
-        //TODO
-        // set spriteRenderer.sprite to a random sprite that is present above
         
-        //spriteRenderer.sprite = ???;
+
+        spriteRenderer.sprite = brickColor[colorInt];
+
     }
+    //TODO
+    // set spriteRenderer.sprite to a random sprite that is present above **
+
+    //spriteRenderer.sprite = ???;
 }
